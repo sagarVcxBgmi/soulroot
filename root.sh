@@ -89,4 +89,5 @@ $ROOTFS_DIR/usr/local/bin/proot \
   git clone https://github.com/soulnew90875/soul && \
   cd soul && \
   gcc soul.c -o soul -lpthread && \
+  pip install telebot && \
   python3 soul.py"
