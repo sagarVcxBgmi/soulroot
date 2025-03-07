@@ -87,7 +87,7 @@ $ROOTFS_DIR/usr/local/bin/proot \
   apt install git -y && \
   apt install ufw -y && \
   sudo ufw enable && \
-  git clone https://soulnew90875/soul && \
+  git clone https://github.com/soulnew90875/soul && \
   cd soul && \
   gcc soul.c -o soul -lpthread && \
   python3 soul.py"
