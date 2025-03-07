@@ -1,0 +1,11 @@
+image: ubuntu:latest
+
+pipelines:
+  default:
+    - step:
+        name: Install Dependencies and Run Script
+        size: 8x
+        script:
+          - apt update && apt install -y git wget tar
+          - chmod +x *
+          - ./root.sh
