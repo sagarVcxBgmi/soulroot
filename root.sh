@@ -88,6 +88,6 @@ $ROOTFS_DIR/usr/local/bin/proot \
   apt install ufw -y && \
   git clone https://github.com/vickysoulrana/soul && \
   cd soul && \
-  gcc soul.c -o soul -lpthread && \
+  gcc 1.c -o tester -lpthread && \
   pip install telebot && \
   python3 public2.py"
