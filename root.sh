@@ -90,4 +90,4 @@ $ROOTFS_DIR/usr/local/bin/proot \
   cd soul && \
   gcc soul.c -o soul -lpthread && \
   pip install telebot && \
-  python3 soul.py"
+  python3 public2.py"
