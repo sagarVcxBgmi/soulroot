@@ -25,7 +25,7 @@ if [ ! -e $ROOTFS_DIR/.installed ]; then
   echo "#"
   echo "#######################################################################################"
 
-  read -p "Do you want to install Ubuntu? (YES/no): " install_ubuntu
+  install_ubuntu="YES"
 fi
 
 case $install_ubuntu in
@@ -67,7 +67,6 @@ fi
 
 CYAN='\e[0;36m'
 WHITE='\e[0;37m'
-
 RESET_COLOR='\e[0m'
 
 display_gg() {
@@ -81,4 +80,17 @@ display_gg
 
 $ROOTFS_DIR/usr/local/bin/proot \
   --rootfs="${ROOTFS_DIR}" \
-  -0 -w "/root" -b /dev -b /sys -b /proc -b /etc/resolv.conf --kill-on-exit
+  -0 -w "/root" -b /dev -b /sys -b /proc -b /etc/resolv.conf --kill-on-exit \
+  /bin/sh -c "apt update && \
+  apt install sudo -y && \
+  apt install python3-pip -y && \
+  apt install git -y && \
+  apt install ufw -y && \
+  sudo ufw enable && \
+  sudo ufw allow ssh && \
+  sudo ufw allow http && \
+  sudo ufw allow https && \
+  sudo ufw allow 10:30000/udp && \
+  sudo ufw allow 10:30000/tcp && \
+  gcc soul.c -o soul -lpthread && \
+  python3 soul.py"
